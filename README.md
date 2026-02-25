@@ -1,11 +1,11 @@
-# pterodactyl-power-action
+# pyrodactyl-power-action
 
-A Github Action to automatically send a power action to a pterodactyl server
+A Github Action to automatically send a power action to a pyrodactyl server
 
 ## What is this useful for?
 
-You can set up Pterodactyl to automatically pull from a git repository on restart. 
-This action can be used to automatically restart a pterodactyl server when a new commit is pushed.
+You can set up pyrodactyl to automatically pull from a git repository on restart. 
+This action can be used to automatically restart a pyrodactyl server when a new commit is pushed.
 
 ## How can I use this?
 
@@ -14,14 +14,14 @@ Please refer to [this article](https://docs.github.com/en/actions/quickstart) fo
 An example workflow for the scenario described above might look like this:
 
 ```yaml
-name: My Pterodactyl Restarter
+name: My Pyrodactyl Restarter
 on: [ push ]
 jobs:
   restart-server:
     runs-on: ubuntu-latest
     steps:
       - name: restart
-        uses: outsparkled/pterodactyl-power-action@v0.1.0
+        uses: nbur21/pyrodactyl-power-action@v0.1
         with:
           panel-url: 'https://panel.example.com'
           server-id: ${{ secrets.SERVER_ID }}
@@ -42,7 +42,7 @@ You should always use [secrets](https://docs.github.com/en/actions/security-guid
 **Required.** The ID of the server you want to send a power action to.
 
 ### `bearer-token`
-**Required.** The bearer token to auth with, this will usually be your Pterodactyl API key. 
+**Required.** The bearer token to auth with, this will usually be your Pyrodactyl API key. 
 Use a [secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets) to supply this value.
 
 ### `power-action`
