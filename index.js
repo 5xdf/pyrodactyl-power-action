@@ -11,7 +11,7 @@ if (!powerAction) powerAction = "restart";
 
 let url;
 try {
-    url = new URL(`${panelUrl}/api/client/servers/${serverId}/power`);
+    url = new URL(`${panelUrl}/api/client/servers/elytra/${serverId}/power`);
 } catch (e) {
     core.setFailed("Malformed URL")
     process.exit(1);
