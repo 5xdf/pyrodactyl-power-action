@@ -1,6 +1,6 @@
-name: "Pterodactyl Power Action"
-description: "Github Action to automatically send a power action to a Pterodactyl server"
-author: "outsparkled"
+name: "Pyrodactyl Power Action"
+description: "Github Action to automatically send a power action to a Pyrodactyl server"
+author: "nbur21"
 branding:
   color: blue
   icon: server
