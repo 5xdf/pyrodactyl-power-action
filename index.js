@@ -13,6 +13,7 @@ if (!powerAction) powerAction = "restart";
 let url;
 try {
     url = new URL(`${panelUrl}/api/client/servers/${daemonType}/${serverId}/power`);
+    core.info(`URL: ${url}`);
 } catch (e) {
     core.setFailed("Malformed URL")
     process.exit(1);
