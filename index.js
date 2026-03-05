@@ -13,7 +13,6 @@ if (!powerAction) powerAction = "restart";
 let url;
 try {
     url = new URL(`${panelUrl}/api/client/servers/${daemonType}/${serverId}/power`);
-    core.info(`URL: ${url}`);
 } catch (e) {
     core.setFailed("Malformed URL")
     process.exit(1);
@@ -30,9 +29,11 @@ fetch(url.toString(), {
     method: "POST", headers: headers, body: JSON.stringify(body)
 }).then(async (res) => {
     if (res.ok) {
+        core.info(`URL: ${url.toString()}`);
         core.info(`Success! Got ${res.status} ${res.statusText}`)
         process.exit(0);
     } else {
+        core.info(`URL: ${url.toString()}`);
         core.setFailed(`Non-OK response! Got ${res.status} ${res.statusText}: ${await res.text()}`);
         process.exit(1);
     }
