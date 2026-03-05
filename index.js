@@ -34,7 +34,7 @@ fetch(url.toString(), {
         process.exit(0);
     } else {
         core.info(`URL: ${url.toString()}`);
-        core.setFailed(`Non-OK response! Got ${res.status} ${res.statusText}: ${await res.text()}`);
+        core.setFailed(`Non-OK response! Got ${res.status} ${res.statusText} ${url.toString()}: ${await res.text()}`);
         process.exit(1);
     }
 });
