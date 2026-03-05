@@ -6735,6 +6735,7 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(2186);
 const fetch = __nccwpck_require__(467);
 
+let daemonType = core.getInput('daemon-type', {required: true});
 let panelUrl = core.getInput('panel-url', {required: true});
 let serverId = core.getInput('server-id', {required: true});
 let bearerToken = core.getInput('bearer-token', {required: true});
@@ -6745,9 +6746,9 @@ if (!powerAction) powerAction = "restart";
 
 let url;
 try {
-    url = new URL(`${panelUrl}/api/client/servers/${serverId}/power`);
+    url = new URL(`${panelUrl}/api/client/servers/${daemonType}/${serverId}/power`);
 } catch (e) {
-    core.setFailed("Malformed URL")
+    core.setFailed("Malformed URL");
     process.exit(1);
 }
 
@@ -6762,7 +6763,7 @@ fetch(url.toString(), {
     method: "POST", headers: headers, body: JSON.stringify(body)
 }).then(async (res) => {
     if (res.ok) {
-        core.info(`Success! Got ${res.status} ${res.statusText}`)
+        core.info(`Success! Got ${res.status} ${res.statusText}`);
         process.exit(0);
     } else {
         core.setFailed(`Non-OK response! Got ${res.status} ${res.statusText}: ${await res.text()}`);
