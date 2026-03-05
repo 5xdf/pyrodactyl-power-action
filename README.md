@@ -21,9 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: restart
-        uses: nbur21/pyrodactyl-power-action@v0.1
+        uses: 5xdf/pyrodactyl-power-action@v0.1
         with:
           panel-url: 'https://panel.example.com'
+          daemon-type: 'elytra'
           server-id: ${{ secrets.SERVER_ID }}
           bearer-token: ${{ secrets.BEARER_TOKEN }}
           power-action: 'restart'
@@ -36,6 +37,10 @@ You should always use [secrets](https://docs.github.com/en/actions/security-guid
 ### `panel-url`
 
 **Required.** The URL of the panel.
+
+### `daemon-type`
+
+**Required.** The daemon to use. Can be `elytra` or `wings`.
 
 ### `server-id`
 
