@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const fetch = require("node-fetch");
 
+let daemonType = core.getInput('daemon-type' {required: true});
 let panelUrl = core.getInput('panel-url', {required: true});
 let serverId = core.getInput('server-id', {required: true});
 let bearerToken = core.getInput('bearer-token', {required: true});
@@ -11,7 +12,7 @@ if (!powerAction) powerAction = "restart";
 
 let url;
 try {
-    url = new URL(`${panelUrl}/api/client/servers/elytra/${serverId}/power`);
+    url = new URL(`${panelUrl}/api/client/servers/${daemonType}/${serverId}/power`);
 } catch (e) {
     core.setFailed("Malformed URL")
     process.exit(1);
