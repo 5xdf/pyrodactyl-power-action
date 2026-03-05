@@ -8,6 +8,9 @@ inputs:
   panel-url:
     description: "The URL of the panel"
     required: true
+  daemon-type:
+    description: "The type of daemon that is running your Pyrodactyl server. (wings/elytra)"
+    required: true
   server-id:
     description: "The ID of the server you want to send a power action to"
     required: true
