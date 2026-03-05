@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const fetch = require("node-fetch");
 
-let daemonType = core.getInput('daemon-type' {required: true});
+let daemonType = core.getInput('daemon-type', {required: true});
 let panelUrl = core.getInput('panel-url', {required: true});
 let serverId = core.getInput('server-id', {required: true});
 let bearerToken = core.getInput('bearer-token', {required: true});
